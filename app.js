@@ -12,7 +12,7 @@ let currentIndex = 0;
 let questionItem = document.createElement("div");
 let score = 0;
 const button = document.querySelector("button");
-const rectangles = [];
+let rectangles = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -104,11 +104,11 @@ function resetGame() {
     currentIndex = 0;
     score = 0;
     document.querySelector(".quiz-container").innerHTML = "";
-    document.querySelector(".notification-container").textContent = "";
+    document.querySelector(".notification-container").textContent = "Let's see how well you know your school! Double click on the map to answer.";
     button.classList.add("hidden");
     rectangles.forEach(rect => rect.setMap(null));
     rectangles = [];
-    
+
     updateHighScoreDisplay();
     showQuestion();
 }
