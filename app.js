@@ -12,6 +12,7 @@ let currentIndex = 0;
 let questionItem = document.createElement("div");
 let score = 0;
 const button = document.querySelector("button");
+const rectangles = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -48,7 +49,7 @@ function checkLocation(clickedLocation) {
                    clickedLocation.lng <= bounds.east;
 
     // draw rectangle when user clicks, green if correct, red if wrong
-    new google.maps.Rectangle({
+    const rect = new google.maps.Rectangle({
         bounds: bounds,
         fillColor: within ? "green" : "red",
         fillOpacity: 0.4,
@@ -56,6 +57,7 @@ function checkLocation(clickedLocation) {
         strokeWeight: 2,
         map: map
     });
+    rectangles.push(rect);
 
     // update notification
     document.querySelector(".notification-container").textContent =
@@ -104,6 +106,9 @@ function resetGame() {
     document.querySelector(".quiz-container").innerHTML = "";
     document.querySelector(".notification-container").textContent = "";
     button.classList.add("hidden");
+    rectangles.forEach(rect => rect.setMap(null));
+    rectangles = [];
+    
     updateHighScoreDisplay();
     showQuestion();
 }
