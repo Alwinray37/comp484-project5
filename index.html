@@ -8,23 +8,28 @@
 </head>
 <body>
     <header>
-        <h1>Google Maps API</h1>
+        <h1>Project 5 - Google Maps API</h1>
+        <span id="high-score">High Score: 0 / 5</span>
     </header>
     <main>
         <div class="col left-panel">
             <h2>Map Quiz</h2>
             <p>Double click on the map the location of:</p>
             <div class="quiz-container">
-                
+                <!-- <div class="question">Bookstore</div> -->
             </div>
+            <div class="notification-container">
+                <!-- wrong or right -->
+            </div>
+            <button class="hidden" onclick="resetGame()">Reset Game</button>
         </div>
-        <div class="col right-panel map">
+        <div id="map" class="col right-panel map">
             
         </div>
     </main>
     
 
     <script src="app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbffhr0ohc385oCbgvyADlgRVDfePXysM&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARhfPkQDB1zS53JhOP4ZzuN0O9a5A6TX4&callback=initMap" async defer></script>
 </body>
 </html>
